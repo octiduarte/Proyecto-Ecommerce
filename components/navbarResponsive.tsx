@@ -12,46 +12,46 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 export default function NavbarResponsive() {
   return (
-    <header className="flex items-center justify-between h-16 px-4 bg-background border-b md:px-6">
+    <header className="flex items-center justify-between h-16 px-4 bg-foreground border-b md:px-6">
       <Link
         href="#"
         className="flex items-center gap-2 text-lg font-semibold"
         prefetch={false}
       >
-        <MountainIcon className="w-6 h-6" />
+        <MountainIcon className="w-6 h-6 stroke-white" />
         <span className="sr-only">Empresa</span>
       </Link>
       <nav className="hidden space-x-6 text-sm font-medium md:flex">
         <Link
           href="#"
-          className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
+          className="px-4 py-3 rounded-md text-white hover:bg-zinc-800"
           prefetch={false}
         >
           Inicio
         </Link>
         <Link
           href="#"
-          className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
+          className="px-4 py-3 rounded-md text-white hover:bg-accent hover:bg-zinc-800"
           prefetch={false}
         >
           Productos
         </Link>
         <Link
           href="#"
-          className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
+          className="px-4 py-3 rounded-md text-white hover:bg-accent hover:bg-zinc-800"
           prefetch={false}
         >
           Contacto
         </Link>
       </nav>
       <div className="flex items-center gap-4">
-        <Button variant="outline" size="icon">
-          <ShoppingCartIcon className="w-6 h-6" />
+        <Button variant="destructive" size="icon">
+          <ShoppingCartIcon className="w-6 h-6 " />
           <span className="sr-only">Ver carrito</span>
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" size="icon">
+            <Button variant="destructive" size="icon">
               <UserIcon className="w-6 h-6" />
               <span className="sr-only">View Perfil</span>
             </Button>
@@ -66,8 +66,8 @@ export default function NavbarResponsive() {
       </div>
       <Sheet>
         <SheetTrigger asChild>
-          <Button variant="outline" size="icon" className="md:hidden">
-            <MenuIcon className="w-6 h-6" />
+          <Button variant="destructive" size="icon" className="md:hidden">
+            <MenuIcon className="w-6 h-6 stroke-white hover:stroke-black" />
             <span className="sr-only">Alternar navegacion</span>
           </Button>
         </SheetTrigger>

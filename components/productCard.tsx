@@ -31,7 +31,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, ima
           <p className="text-sm leading-none">{description}</p>
         </div>
       </div>
-      <Button variant="outline" className="w-full">
+      <Button variant="destructive" className="w-full">
         Add to cart
       </Button>
     </div>
