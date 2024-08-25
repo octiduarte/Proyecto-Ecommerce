@@ -3,7 +3,7 @@ import React from "react";
 
 const SectionHeader = () => {
   return (
-    <div className="relative  flex   h-full md:h52 xl:h-60 2xl:h-96 w-full items-center justify-center overflow-hidden ">
+    <div className="relative flex  sm:h-80  xl:h-96  w-full items-center justify-center overflow-hidden ">
       <img
         src="/placeholder.svg"
         className="absolute  w-full object-cover"

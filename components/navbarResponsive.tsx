@@ -12,7 +12,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
 export default function NavbarResponsive() {
   return (
-    <header className="flex items-center justify-between h-16 px-4 bg-foreground border-b md:px-6">
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-16 px-4 bg-foreground border-b md:px-6">
       <Link
         href="#"
         className="flex items-center gap-2 text-lg font-semibold"

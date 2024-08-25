@@ -27,6 +27,7 @@ export default function RootLayout({
       <body 
         className={cn(
           'antialiased',
+          '!pt-16',
           fontHeading.variable,
           fontBody.variable
         )}

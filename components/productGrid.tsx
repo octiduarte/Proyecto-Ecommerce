@@ -50,8 +50,8 @@ const products = [
 const ProductGrid = () => {
   const displayedProducts = products.slice(0, 5);
   return (
-    <div className="flex flex-col-reverse xl:flex xl:flex-col">
-      <div className="flex justify-end mr-24 my-10" >
+    <div className="flex flex-col-reverse sm:flex sm:flex-col">
+      <div className="flex lg:justify-end lg:mr-24 my-5 justify-center" >
       <Link
           href="#"
           className=" text-white  bg-black p-3 border rounded-md hover:bg-zinc-800"
@@ -60,7 +60,7 @@ const ProductGrid = () => {
         Ver todos
         </Link>
       </div>
-      <div className="grid px-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8  md:px-40">
+      <div className="grid px-5 sm:grid-cols-3 lg:grid-cols-5  gap-8  lg:px-40">
         {displayedProducts.map((product, index) => (
           <ProductCard
             key={index}

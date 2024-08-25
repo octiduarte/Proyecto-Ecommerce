@@ -11,7 +11,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, imageUrl }) => {
   return (
-    <div className="grid gap-4">
+    <div className="grid gap-4 ">
       <div className="grid gap-2.5 relative group">
         <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
           <span className="sr-only">View</span>
@@ -32,7 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, ima
         </div>
       </div>
       <Button variant="destructive" className="w-full">
-        Add to cart
+        Agregar a carrito
       </Button>
     </div>
   );

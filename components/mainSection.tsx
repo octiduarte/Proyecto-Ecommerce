@@ -5,9 +5,9 @@ import SectionFooter from "./sectionFooter";
 
 const MainSection = () => {
   return (
-    <main >
+    <main  >
       <div>
-        <section>
+        <section  >
           <SectionHeader />
         </section>
         <section>
