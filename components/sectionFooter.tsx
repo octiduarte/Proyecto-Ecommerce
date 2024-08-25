@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const SectionFooter = () => {
   return (
-    <footer className="bg-muted text-muted-foreground py-8 mt-10">
+    <footer className="border text-muted-foreground py-8 mt-10">
       <div className="container mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
         <MountainIcon/>
