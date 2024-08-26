@@ -1,15 +1,17 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
+import { AddToCart } from './ui/buttons';
 
 interface ProductCardProps {
+  id:number;
   name: string;
   price: string;
   description: string;
   imageUrl: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, imageUrl }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ id ,name, price, description, imageUrl }) => {
   return (
     <div className="grid gap-4 ">
       <div className="grid gap-2.5 relative group">
@@ -31,9 +33,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, description, ima
           <p className="text-sm leading-none">{description}</p>
         </div>
       </div>
-      <Button variant="destructive" className="w-full">
-        Agregar a carrito
-      </Button>
+      <AddToCart id={id} ></AddToCart>
     </div>
   );
 };

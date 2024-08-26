@@ -23,7 +23,7 @@ export default function NavbarResponsive() {
       </Link>
       <nav className="hidden space-x-6 text-sm font-medium md:flex">
         <Link
-          href="#"
+          href="/"
           className="px-4 py-3 rounded-md text-white hover:bg-zinc-800"
           prefetch={false}
         >

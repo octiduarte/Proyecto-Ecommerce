@@ -5,7 +5,6 @@ import SectionFooter from "@/components/sectionFooter";
 export default function Home() {
   return (<>
    <MainSection></MainSection>
-   <SectionFooter/>
    </>
   );
 }

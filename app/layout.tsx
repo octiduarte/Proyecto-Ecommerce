@@ -3,7 +3,8 @@
 import { Inter } from 'next/font/google'
 import { cn } from '@/lib/utils'
 import './globals.css'
-import NavbarResponsive from '@/components//navbarResponsive'
+import NavbarResponsive from '@/components/navbarResponsive'
+import SectionFooter from '@/components/sectionFooter'
 
 const fontHeading = Inter({
   subsets: ['latin'],
@@ -34,6 +35,7 @@ export default function RootLayout({
       >
         <NavbarResponsive></NavbarResponsive>
         {children}
+        <SectionFooter></SectionFooter>
       </body>
       
     </html>
