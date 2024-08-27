@@ -5,15 +5,9 @@ import SectionFooter from "./sectionFooter";
 
 const MainSection = () => {
   return (
-    <main  >
-      <div>
-        <section  >
-          <SectionHeader />
-        </section>
-        <section>
-          <ProductGrid />
-        </section>
-      </div>
+    <main>
+      <SectionHeader />
+      <ProductGrid />
     </main>
   );
 };
