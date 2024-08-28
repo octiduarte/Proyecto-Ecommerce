@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import './globals.css'
 import NavbarResponsive from '@/components/navbarResponsive'
 import SectionFooter from '@/components/sectionFooter'
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 
 const fontHeading = Inter({
   subsets: ['latin'],
