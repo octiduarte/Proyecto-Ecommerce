@@ -4,36 +4,39 @@ import Link from 'next/link';
 import { AddToCart } from './ui/buttons';
 
 interface ProductCardProps {
-  id:number;
+  id: number;
   name: string;
   price: string;
   description: string;
   imageUrl: string;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ id ,name, price, description, imageUrl }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, description, imageUrl }) => {
   return (
-    <div className="grid gap-4 ">
-      <div className="grid gap-2.5 relative group">
-        <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
-          <span className="sr-only">View</span>
-        </Link>
-        <img
-          src={imageUrl}
-          alt={name}
-          width={200}
-          height={200}
-          className="rounded-lg object-cover w-full aspect-square group-hover:opacity-50 transition-opacity"
-        />
-        <div className="grid gap-1">
-          <div className="flex items-center gap-4">
-            <h3 className="font-semibold">{name}</h3>
-            <h4 className="font-semibold ml-auto">{price}</h4>
+    <div className="flex flex-col justify-between h-full p-4 border rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg">
+      <Link href={`/productview/${id}`} prefetch={false} className="flex-grow ">
+        <div>
+          <div className="relative group ">
+            <img
+              src={imageUrl}
+              alt={name}
+              width={200}
+              height={200}
+              className="rounded-lg object-cover w-full aspect-square "
+            />
           </div>
-          <p className="text-sm leading-none">{description}</p>
+          <div className="mt-4">
+            <h3 className="font-semibold">{name}</h3>
+            <h4 className="font-semibold mt-1">{price}</h4>
+            <p className="text-sm leading-none mt-2">{description}</p>
+          </div>
         </div>
+      </Link>
+
+      {/* Botón "Agregar a carrito" separado del link */}
+      <div className="mt-4">
+        <AddToCart id={id}></AddToCart>
       </div>
-      <AddToCart id={id} ></AddToCart>
     </div>
   );
 };

@@ -19,6 +19,7 @@ const fontBody = Inter({
   variable: '--font-body',
 })
 
+
 export default function RootLayout({
   children,
 }: Readonly<{

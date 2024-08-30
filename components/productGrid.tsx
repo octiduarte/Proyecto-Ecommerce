@@ -17,17 +17,8 @@ type ProductGridProps = {
 
 const ProductGrid = ({ products }: ProductGridProps) => {
   return (
-    <div className="flex flex-col-reverse sm:flex sm:flex-col">
-      <div className="flex lg:justify-end lg:mr-24 my-5 justify-center" >
-        <Link
-          href="#"
-          className="text-white bg-black p-3 border rounded-md hover:bg-zinc-800"
-          prefetch={false}
-        > 
-          Ver todos
-        </Link>
-      </div>
-      <div className="grid px-5 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:px-40">
+    <div className="flex flex-col sm:flex sm:flex-col md:pt-8">
+      <div className="grid px-5 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:px-20">
         {products.map((product, index) => (
           <ProductCard
             key={index}
@@ -35,9 +26,18 @@ const ProductGrid = ({ products }: ProductGridProps) => {
             name={product.name}
             price={`$${product.price}`}
             description={product.description}
-            imageUrl={product.image || "/placeholder.svg"}
+            imageUrl={product.image}
           />
         ))}
+      </div>
+      <div className="flex lg:justify-center my-5 justify-center" >
+        <Link
+          href="#"
+          className="text-white bg-zinc-900 text-xs p-3 border rounded-md hover:bg-zinc-800"
+          prefetch={false}
+        > 
+          Mostrar todo
+        </Link>
       </div>
     </div>
   );

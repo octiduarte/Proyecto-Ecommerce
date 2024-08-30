@@ -4,7 +4,7 @@ import { Button } from './button';
 export function AddToCart({ id }: { id: number }) {
     return (
       <Link
-        href={`/productview/${id}/`}
+        href=""
       >
         <Button variant="destructive" className="w-full">
         Agregar a carrito
