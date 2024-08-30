@@ -9,17 +9,18 @@ type Product = {
   name: string;
   price: number;
   category: string;
-  description:string;
+  description: string;
 };
 
 type MainSectionProps = {
   products: Product[];
+  banner: string; // Añadimos la propiedad banner
 };
 
-const MainSection = ({ products }: MainSectionProps) => {
+const MainSection = ({ products, banner }: MainSectionProps) => {
   return (
     <main>
-      <SectionHeader />
+      <SectionHeader banner={banner} />
       <ProductGrid products={products} />
     </main>
   );

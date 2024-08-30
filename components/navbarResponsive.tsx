@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,17 +10,31 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet";
 
-export default function NavbarResponsive() {
+type NavbarResponsiveProps = {
+  store: {
+    name: string;
+    logo: string;
+  };
+  categories: string[];
+};
+
+export default function NavbarResponsive({
+  store,
+  categories,
+}: NavbarResponsiveProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-16 px-4 bg-foreground border-b md:px-6">
+      {/* Muestra el logo y nombre de la tienda */}
       <Link
         href="#"
         className="flex items-center gap-2 text-lg font-semibold"
         prefetch={false}
       >
-        <MountainIcon className="w-6 h-6 stroke-white" />
-        <span className="sr-only">Empresa</span>
+        <img src={store.logo} alt={store.name} className="w-6 h-6" />
+        <span className="text-white">{store.name}</span>
       </Link>
+
+      {/* Navegación principal */}
       <nav className="hidden space-x-6 text-sm font-medium md:flex">
         <Link
           href="/"
@@ -29,13 +43,23 @@ export default function NavbarResponsive() {
         >
           Inicio
         </Link>
-        <Link
-          href="#"
-          className="px-4 py-3 rounded-md text-white hover:bg-accent hover:bg-zinc-800"
-          prefetch={false}
-        >
-          Productos
-        </Link>
+        {/* Dropdown de categorías */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Link
+              href="/"
+              className="px-4 py-3 rounded-md text-white hover:bg-zinc-800"
+              prefetch={false}
+            >
+              Productos
+            </Link>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            {categories.map((category, index) => (
+              <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
         <Link
           href="#"
           className="px-4 py-3 rounded-md text-white hover:bg-accent hover:bg-zinc-800"
@@ -44,31 +68,35 @@ export default function NavbarResponsive() {
           Contacto
         </Link>
       </nav>
+
+      {/* Íconos de usuario y carrito */}
       <div className="flex items-center gap-4">
         <Button variant="destructive" size="icon">
-          <ShoppingCartIcon className="w-6 h-6 " />
+          <ShoppingCartIcon className="w-6 h-6" />
           <span className="sr-only">Ver carrito</span>
         </Button>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="destructive" size="icon">
               <UserIcon className="w-6 h-6" />
-              <span className="sr-only">View Perfil</span>
+              <span className="sr-only">Ver Perfil</span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuItem>Mi cuenta</DropdownMenuItem>
-            <DropdownMenuItem>Configuracion</DropdownMenuItem>
+            <DropdownMenuItem>Configuración</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Cerrar Sesion</DropdownMenuItem>
+            <DropdownMenuItem>Cerrar Sesión</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+
+      {/* Menú móvil */}
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="destructive" size="icon" className="md:hidden">
             <MenuIcon className="w-6 h-6 stroke-white hover:stroke-black" />
-            <span className="sr-only">Alternar navegacion</span>
+            <span className="sr-only">Alternar navegación</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="md:hidden">
@@ -80,13 +108,22 @@ export default function NavbarResponsive() {
             >
               Inicio
             </Link>
-            <Link
-              href="#"
-              className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
-              prefetch={false}
-            >
-              Productos
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Link
+                  href="/"
+                  className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
+                  prefetch={false}
+                >
+                  Productos
+                </Link>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {categories.map((category, index) => (
+                  <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Link
               href="#"
               className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"

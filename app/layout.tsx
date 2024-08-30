@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import './globals.css'
 import NavbarResponsive from '@/components/navbarResponsive'
 import SectionFooter from '@/components/sectionFooter'
-import type { InferGetStaticPropsType, GetStaticProps } from 'next'
+import { fetchData } from '@/lib/api'
 
 const fontHeading = Inter({
   subsets: ['latin'],
@@ -20,11 +20,12 @@ const fontBody = Inter({
 })
 
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const data = await fetchData();
   return (
     <html lang="en">
       <body 
@@ -35,7 +36,7 @@ export default function RootLayout({
           fontBody.variable
         )}
       >
-        <NavbarResponsive></NavbarResponsive>
+        <NavbarResponsive store={data.store} categories={data.categories}></NavbarResponsive>
         {children}
         <SectionFooter></SectionFooter>
       </body>
