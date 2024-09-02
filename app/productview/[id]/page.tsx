@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -9,8 +10,13 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import React from "react";
+import { useParams } from 'next/navigation';
 
 export default function Page() {
+  const params = useParams();
+  const { id } = params;
+
+
   return (
     <section className="py-12 md:py-10">
       <div className="grid gap-8 px-4 md:px-6">
@@ -67,7 +73,7 @@ export default function Page() {
                     className="border cursor-pointer rounded-md p-2 flex items-center gap-2 [&:has(:checked)]:bg-muted"
                   >
                     <RadioGroupItem id="color-blue" value="blue" />
-                    Blue
+                    Blue {id}
                   </Label>
                 </RadioGroup>
               </div>

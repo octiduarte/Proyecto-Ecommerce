@@ -18,6 +18,7 @@ type NavbarResponsiveProps = {
   categories: string[];
 };
 
+
 export default function NavbarResponsive({
   store,
   categories,
