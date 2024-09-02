@@ -12,7 +12,7 @@ export default function SectionFooter  ({
   store
 }: SectionFooterProps) {
   return (
-    <footer className="border text-muted-foreground py-8">
+    <footer className="border text-muted-foreground py-4">
       <div className="container mx-auto px-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <img src={store.logo} alt={store.name} className="w-6 h-6" />

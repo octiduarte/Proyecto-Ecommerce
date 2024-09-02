@@ -17,7 +17,7 @@ type ProductGridProps = {
 
 const ProductGrid = ({ products }: ProductGridProps) => {
   return (
-    <div className="flex flex-col sm:flex sm:flex-col md:pt-8">
+    <div className="flex flex-col sm:flex sm:flex-col pt-8">
       <div className="grid px-5 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:px-20">
         {products.map((product, index) => (
           <ProductCard

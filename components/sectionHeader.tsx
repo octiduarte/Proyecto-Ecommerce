@@ -13,8 +13,8 @@ const SectionHeader = ({ banner }: SectionHeaderProps) => {
         className="absolute w-full h-full object-cover"
         alt="Banner" // Añadimos texto alternativo para accesibilidad
       />
-      <div className="relative z-10 flex flex-col gap-3 py-5 bg-white/60 p-6 rounded-lg text-center">
-        <h1 className="md:text-7xl text-6xl font-bold text-black">
+      <div className="relative z-10 flex flex-col gap-7 py-5 bg-white/40 p-6 rounded-lg text-center">
+        <h1 className="md:text-8xl text-6xl font-bold text-black">
           Bienvenidos a nuestro Ecommerce
         </h1>
         <p className="text-black">

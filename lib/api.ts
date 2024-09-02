@@ -3,6 +3,6 @@ export async function fetchData() {
       cache: 'no-store' // Esto deshabilita la caché, similar a getServerSideProps.
     });
     const data = await res.json();
-    console.log("sex")
+
     return data;
   }
