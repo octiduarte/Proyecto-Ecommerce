@@ -18,7 +18,6 @@ type NavbarResponsiveProps = {
   categories: string[];
 };
 
-
 export default function NavbarResponsive({
   store,
   categories,
@@ -31,7 +30,9 @@ export default function NavbarResponsive({
         className="flex items-center gap-2 text-lg font-semibold"
         prefetch={false}
       >
-        <img src={store.logo} alt={store.name} className="w-6 h-6" />
+        <div className="bg-white rounded-full p-1">
+          <img src={store.logo} alt={store.name} className="w-6 h-6" />
+        </div>
         <span className="text-white">{store.name}</span>
       </Link>
 

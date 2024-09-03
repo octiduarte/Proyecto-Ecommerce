@@ -1,7 +1,6 @@
 import React from "react";
 import SectionHeader from "./sectionHeader";
 import ProductGrid from "./productGrid";
-import SectionFooter from "./sectionFooter";
 
 type Product = {
   product_id: number;
@@ -14,7 +13,7 @@ type Product = {
 
 type MainSectionProps = {
   products: Product[];
-  banner: string; // Añadimos la propiedad banner
+  banner: string;
 };
 
 const MainSection = ({ products, banner }: MainSectionProps) => {
@@ -26,4 +25,4 @@ const MainSection = ({ products, banner }: MainSectionProps) => {
   );
 };
 
-export default MainSection;
+export default MainSection; // Aquí es donde se realiza la exportación por defecto.

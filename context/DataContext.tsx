@@ -8,12 +8,6 @@ interface Store {
   banner: string;
 }
 
-interface Data {
-  store: Store;
-  categories: string[];
-  products: Product[];
-}
-
 interface Product {
   product_id: number;
   image: string;
@@ -21,6 +15,12 @@ interface Product {
   price: number;
   category: string;
   description: string;
+}
+
+interface Data {
+  store: Store;
+  categories: string[];
+  products: Product[];
 }
 
 interface DataContextType {
@@ -44,4 +44,5 @@ const useData = () => {
   }
   return context.data;
 };
-export default useData
+export default useData;
+

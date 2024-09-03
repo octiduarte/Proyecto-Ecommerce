@@ -1,8 +1,9 @@
+'use client'
 import MainSection from "@/components/mainSection";
-import { fetchData } from "@/lib/api";
+import useData  from "@/context/DataContext";
 
-export default async function Home() {
-  const data = await fetchData();
+export default function Home() {
+  const data = useData();
 
   return (
     <>

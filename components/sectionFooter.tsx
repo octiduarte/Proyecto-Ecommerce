@@ -18,6 +18,9 @@ export default function SectionFooter  ({
           <img src={store.logo} alt={store.name} className="w-6 h-6" />
           <span className="text-lg font-bold">{store.name}</span>
         </div>
+        <div>
+          <span>Created By Duarte</span>
+        </div>
         <div className="flex justify-center items-center gap-4">
           <Link href="#" className="text-muted-foreground hover:text-foreground" prefetch={false}>
             <InstagramIcon className="w-5 h-5" />
