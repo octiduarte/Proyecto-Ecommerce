@@ -32,8 +32,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, description,
           </div>
         </div>
       </Link>
-
-      {/* Botón "Agregar a carrito" separado del link */}
       <div className="mt-4">
         <AddToCart id={id}></AddToCart>
       </div>

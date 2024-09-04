@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -23,8 +22,7 @@ export default function NavbarResponsive({
   categories,
 }: NavbarResponsiveProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-16 px-4 bg-foreground md:px-6">
-      {/* Muestra el logo y nombre de la tienda */}
+    <header className="fixed top-0 left-0 right-0 z-50  flex items-center justify-between h-16 px-4 bg-foreground md:px-6">
       <Link
         href="#"
         className="flex items-center gap-2 text-lg font-semibold"
@@ -36,7 +34,6 @@ export default function NavbarResponsive({
         <span className="text-white">{store.name}</span>
       </Link>
 
-      {/* Navegación principal */}
       <nav className="hidden space-x-6 text-sm font-medium md:flex">
         <Link
           href="/"
@@ -45,7 +42,6 @@ export default function NavbarResponsive({
         >
           Inicio
         </Link>
-        {/* Dropdown de categorías */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Link
@@ -56,10 +52,18 @@ export default function NavbarResponsive({
               Productos
             </Link>
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent  align="end"
+  sideOffset={4}
+  style={{
+    overflow: "auto", // o "visible" si prefieres
+  }}>
             {categories.map((category, index) => (
               <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
             ))}
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <Link href="/todos-los-productos">Ver todos</Link>
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
         <Link
@@ -124,6 +128,10 @@ export default function NavbarResponsive({
                 {categories.map((category, index) => (
                   <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
                 ))}
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link href="/">Ver todos</Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             <Link

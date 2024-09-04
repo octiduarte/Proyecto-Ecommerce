@@ -1,6 +1,3 @@
-html body[data-scroll-locked="1"] {
-  margin-right: 0px !important;/* Usa un selector más específico */
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,11 +26,11 @@ html body[data-scroll-locked="1"] {
     --radius: 0.5rem;
   }
 }
-body[data-scroll-locked="1"] {
-  /* Aquí puedes modificar los estilos, por ejemplo, restaurar el scroll */
-  margin-right: 0px !important; /* Esto permite el scroll */
-  /* Puedes añadir otros estilos si es necesario */
+
+body[data-scroll-locked="1"] header {
+  margin-right: 15px !important;
 }
+
 
 @layer base {
   * {
