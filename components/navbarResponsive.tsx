@@ -52,17 +52,19 @@ export default function NavbarResponsive({
               Productos
             </Link>
           </DropdownMenuTrigger>
-          <DropdownMenuContent  align="end"
-  sideOffset={4}
-  style={{
-    overflow: "auto", // o "visible" si prefieres
-  }}>
+          <DropdownMenuContent
+            align="end"
+            sideOffset={4}
+            style={{
+              overflow: "auto", // o "visible" si prefieres
+            }}
+          >
             {categories.map((category, index) => (
               <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href="/todos-los-productos">Ver todos</Link>
+              <Link href="/products">Ver todos</Link>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -74,8 +76,6 @@ export default function NavbarResponsive({
           Contacto
         </Link>
       </nav>
-
-      {/* Íconos de usuario y carrito */}
       <div className="flex items-center gap-4">
         <Button variant="destructive" size="icon">
           <ShoppingCartIcon className="w-6 h-6" />
@@ -108,7 +108,7 @@ export default function NavbarResponsive({
         <SheetContent side="right" className="md:hidden">
           <nav className="grid gap-4 p-4 text-sm font-medium">
             <Link
-              href="#"
+              href="/"
               className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
               prefetch={false}
             >
@@ -130,7 +130,7 @@ export default function NavbarResponsive({
                 ))}
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Link href="/">Ver todos</Link>
+                  <Link href="/products">Ver todos</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
