@@ -13,7 +13,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, description, imageUrl }) => {
   return (
-    <div className="flex flex-col justify-between h-full p-4 border rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg">
+    <div className="flex flex-col justify-between h-full p-4 border transition-transform duration-300 ease-in-out rounded-lg shadow-lg group hover:shadow-xl hover:-translate-y-2">
       <Link href={`/productview/${id}`} prefetch={false} className="flex-grow ">
         <div>
           <div className="relative group ">
@@ -22,7 +22,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, description,
               alt={name}
               width={200}
               height={200}
-              className="rounded-lg object-cover w-full aspect-square "
+              className="rounded-lg object-cover w-full aspect-square"
             />
           </div>
           <div className="mt-4">
@@ -32,8 +32,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, name, price, description,
           </div>
         </div>
       </Link>
-
-      {/* Botón "Agregar a carrito" separado del link */}
       <div className="mt-4">
         <AddToCart id={id}></AddToCart>
       </div>
