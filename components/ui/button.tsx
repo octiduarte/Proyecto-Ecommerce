@@ -20,10 +20,11 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-10 px-4 py-2 text-base", // Tamaño de texto para "default"
+        sm: "h-9 rounded-md px-3 text-sm",   // Tamaño de texto más pequeño
+        md: "h-10 rounded-md px-5 text-md",
+        lg: "h-11 rounded-md px-8 text-lg",  // Tamaño de texto más grande
+        icon: "h-10 w-10 text-base",         // Tamaño de texto para botones de ícono
       },
     },
     defaultVariants: {
@@ -32,6 +33,7 @@ const buttonVariants = cva(
     },
   }
 )
+
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,

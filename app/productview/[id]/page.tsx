@@ -18,7 +18,7 @@ export default function Page() {
 
 
   return (
-    <section className="py-12 md:py-10">
+    <section className="py-12 md:py-16">
       <div className="grid gap-8 px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl mx-auto">
           <div className="grid gap-4 md:gap-10 items-start">

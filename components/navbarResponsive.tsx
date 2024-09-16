@@ -63,9 +63,11 @@ export default function NavbarResponsive({
               <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
+            <Link href="/products">
             <DropdownMenuItem>
-              <Link href="/products">Ver todos</Link>
+              Ver todos
             </DropdownMenuItem>
+            </Link>
           </DropdownMenuContent>
         </DropdownMenu>
         <Link
@@ -129,9 +131,11 @@ export default function NavbarResponsive({
                   <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />
+                <Link href="/products">
                 <DropdownMenuItem>
-                  <Link href="/products">Ver todos</Link>
+                  Ver todos
                 </DropdownMenuItem>
+                </Link>
               </DropdownMenuContent>
             </DropdownMenu>
             <Link

@@ -29,7 +29,7 @@
 
 body[data-scroll-locked="1"] header {
   @media (max-width: 640px) {
-    margin-right: 0px !important;
+    margin-right: 15px !important;
   }
   margin-right: 15px !important;
 }
