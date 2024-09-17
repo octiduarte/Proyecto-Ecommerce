@@ -27,12 +27,21 @@
   }
 }
 
-body[data-scroll-locked="1"] header {
-  @media (max-width: 640px) {
+@media (min-width: 640px) {
+  body[data-scroll-locked="1"] header { 
     margin-right: 15px !important;
   }
-  margin-right: 15px !important;
 }
+
+
+@media (min-width: 1366px) {
+  body[data-scroll-locked="1"] header { 
+    margin-right: 0px !important;
+  }
+}
+
+
+
 
 @layer base {
   * {

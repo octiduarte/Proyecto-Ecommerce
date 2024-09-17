@@ -5,7 +5,6 @@ import NavbarResponsive from "@/components/navbarResponsive";
 import SectionFooter from "@/components/sectionFooter";
 import { fetchData } from "@/lib/api";
 import { DataProvider } from "@/context/DataContext";
-
 const chackra = Chakra_Petch({
   subsets: ["latin"],
   weight: ["300"],
@@ -21,6 +20,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={cn("!pt-16", chackra.className)}>
+    
         <DataProvider data={data}>
           <NavbarResponsive
             store={data.store}
@@ -29,6 +29,7 @@ export default async function RootLayout({
           {children}
           <SectionFooter store={data.store} />
         </DataProvider>
+       
       </body>
     </html>
   );
