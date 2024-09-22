@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import React from "react";
 import { useParams } from 'next/navigation';
+import { AddToCart } from '@/components/ui/buttons';
 
 export default function Page() {
   const params = useParams();
@@ -18,7 +19,7 @@ export default function Page() {
 
 
   return (
-    <section className="py-12 md:py-10">
+    <section className="py-12 md:py-16">
       <div className="grid gap-8 px-4 md:px-6">
         <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl mx-auto">
           <div className="grid gap-4 md:gap-10 items-start">
@@ -138,7 +139,7 @@ export default function Page() {
                 </Select>
               </div>
               <div className="flex items-center gap-4">
-                <Button size="lg">Agregar a carrito</Button>
+                <Button variant="destructive" size="lg">Agregar a carrito</Button>
               </div>
             </form>
           </div>

@@ -6,7 +6,7 @@ export function AddToCart({ id }: { id: number }) {
       <Link
         href=""
       >
-        <Button variant="destructive" className="w-full">
+        <Button variant="destructive" size="md" className="w-full">
         Agregar a carrito
       </Button>
       </Link>

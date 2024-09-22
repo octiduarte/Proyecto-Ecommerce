@@ -24,15 +24,10 @@
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
+    --negro: 0 0% 0%;
   }
 }
 
-body[data-scroll-locked="1"] header {
-  @media (max-width: 640px) {
-    margin-right: 0px !important;
-  }
-  margin-right: 15px !important;
-}
 
 @layer base {
   * {
@@ -40,7 +35,7 @@ body[data-scroll-locked="1"] header {
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply text-foreground font-body;
   }
 
   h1,

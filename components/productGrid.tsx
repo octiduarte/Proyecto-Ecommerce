@@ -1,6 +1,7 @@
 import React from "react";
 import ProductCard from "./productCard";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 type Product = {
   product_id: number;
@@ -8,7 +9,7 @@ type Product = {
   name: string;
   price: number;
   category: string;
-  description:string;
+  main_description:string;
 };
 
 type ProductGridProps = {
@@ -25,18 +26,19 @@ const ProductGrid = ({ products }: ProductGridProps) => {
             id={product.product_id}
             name={product.name}
             price={`$${product.price}`}
-            description={product.description}
+            description={product.main_description}
             imageUrl={product.image}
           />
         ))}
       </div>
       <div className="flex lg:justify-center my-5 justify-center" >
         <Link
-          href="#"
-          className="text-white bg-zinc-900 text-xs p-3 border rounded-md hover:bg-zinc-800"
+          href="/products"
           prefetch={false}
         > 
-          Mostrar todo
+          <Button variant="destructive" size="md" className="w-full">
+        Mostrar todo
+      </Button>
         </Link>
       </div>
     </div>

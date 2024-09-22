@@ -20,6 +20,7 @@ const config: Config = {
             "ring": "hsl(var(--ring))",
             "background": "hsl(var(--background))",
             "foreground": "hsl(var(--foreground))",
+            "negro": "hs1(var(--black))",
             "primary": {
               "DEFAULT": "hsl(var(--primary))",
               "foreground": "hsl(var(--primary-foreground))"

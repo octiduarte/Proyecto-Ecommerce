@@ -22,7 +22,7 @@ export default function NavbarResponsive({
   categories,
 }: NavbarResponsiveProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50  flex items-center justify-between h-16 px-4 bg-foreground md:px-6">
+    <nav className="flex items-center justify-between h-16 px-4 bg-foreground md:px-6">
       <Link
         href="#"
         className="flex items-center gap-2 text-lg font-semibold"
@@ -63,9 +63,11 @@ export default function NavbarResponsive({
               <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
             ))}
             <DropdownMenuSeparator />
+            <Link href="/products">
             <DropdownMenuItem>
-              <Link href="/products">Ver todos</Link>
+              Ver todos
             </DropdownMenuItem>
+            </Link>
           </DropdownMenuContent>
         </DropdownMenu>
         <Link
@@ -118,20 +120,22 @@ export default function NavbarResponsive({
               <DropdownMenuTrigger asChild>
                 <Link
                   href="/"
-                  className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground"
+                  className="px-2 py-1 rounded-md transition-colors hover:bg-accent hover:text-accent-foreground flex items-center justify-between"
                   prefetch={false}
                 >
-                  Productos
+                  Productos <ChevronDownIcon className="w-4 h-4" />
                 </Link>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent align="start">
                 {categories.map((category, index) => (
                   <DropdownMenuItem key={index}>{category}</DropdownMenuItem>
                 ))}
                 <DropdownMenuSeparator />
+                <Link href="/products">
                 <DropdownMenuItem>
-                  <Link href="/products">Ver todos</Link>
+                  Ver todos
                 </DropdownMenuItem>
+                </Link>
               </DropdownMenuContent>
             </DropdownMenu>
             <Link
@@ -144,7 +148,7 @@ export default function NavbarResponsive({
           </nav>
         </SheetContent>
       </Sheet>
-    </header>
+    </nav>
   );
 }
 
@@ -169,7 +173,7 @@ function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-function MountainIcon(props: React.SVGProps<SVGSVGElement>) {
+function ChevronDownIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -183,9 +187,9 @@ function MountainIcon(props: React.SVGProps<SVGSVGElement>) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+      <path d="m6 9 6 6 6-6" />
     </svg>
-  );
+  )
 }
 
 function ShoppingCartIcon(props: React.SVGProps<SVGSVGElement>) {
