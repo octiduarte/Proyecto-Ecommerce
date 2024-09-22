@@ -168,27 +168,13 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
                 entre los productos y otras secciones.
               </p>
               <div className="grid gap-6 p-6">
-                {/* Logo y Nombre de la tienda */}
-                <Link
-                  href="#"
-                  className="flex items-center gap-2"
-                  prefetch={false}
-                >
-                  <div className="bg-white rounded-full p-1">
-                    <img
-                      src={store.logo}
-                      alt={store.name}
-                      className="w-6 h-6"
-                    />
-                  </div>
-                  <span className="font-bold text-lg">{store.name}</span>
-                </Link>
+
 
                 {/* Navegación móvil */}
                 <nav className="grid gap-4">
                   <Link
                     href="/"
-                    className="flex items-center gap-2 rounded-md px-3 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                    className="flex items-center gap-2 rounded-md px-3 py-2 text-background transition-colors hover:bg-accent-foreground"
                     prefetch={false}
                   >
                     <HomeIcon className="h-5 w-5" />
@@ -197,18 +183,18 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
 
                   {/* Collapsible para "Productos" */}
                   <Collapsible className="grid gap-4">
-                    <CollapsibleTrigger className="flex items-center gap-2 rounded-md px-3 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground [&[data-state=open]>svg]:rotate-90">
+                    <CollapsibleTrigger className="flex items-center gap-2 rounded-md px-3 py-2 text-background transition-colors hover:bg-accent-foreground  [&[data-state=open]>svg]:rotate-90">
                       <ShoppingBagIcon className="h-5 w-5" />
                       Productos
                       <ChevronRightIcon className="ml-auto h-5 w-5 transition-all" />
                     </CollapsibleTrigger>
                     <CollapsibleContent>
-                      <div className="-mx-6 grid gap-2 bg-muted p-6">
+                      <div className="-mx-6 grid gap-2 bg-accent-foreground p-6">
                         {categories.map((category, index) => (
                           <Link
                             key={index}
                             href="#"
-                            className="flex items-center gap-2 rounded-md px-3 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                            className="flex items-center gap-2 rounded-md px-3 py-2 text-background transition-colors hover:bg-accent hover:text-accent-foreground"
                             prefetch={false}
                           >
                             <ShirtIcon className="h-5 w-5" />
@@ -217,10 +203,9 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
                         ))}
                         <Link
                           href="/products"
-                          className="flex items-center gap-2 rounded-md px-3 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                          className="flex items-center gap-2 rounded-md px-3 py-2 text-background transition-colors hover:bg-accent hover:text-accent-foreground"
                           prefetch={false}
                         >
-                          <ShirtIcon className="h-5 w-5" />
                           Ver todos
                         </Link>
                       </div>
@@ -229,7 +214,7 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
 
                   <Link
                     href="#"
-                    className="flex items-center gap-2 rounded-md px-3 py-2 text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                    className="flex items-center gap-2 rounded-md px-3 py-2 text-background transition-colors hover:bg-accent-foreground "
                     prefetch={false}
                   >
                     <UsersIcon className="h-5 w-5" />
