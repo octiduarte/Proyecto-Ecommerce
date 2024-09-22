@@ -1,6 +1,5 @@
 import { fontFamily } from "tailwindcss/defaultTheme";
 
-const { blackA, mauve, violet } = require('@radix-ui/colors');
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -31,9 +30,6 @@ export default {
         body: ['var(--font-body)', ...fontFamily.sans]
       },
       colors: {
-        ...blackA,
-        ...mauve,
-        ...violet,
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -67,6 +63,7 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
         },
+        negro: 'hs1(var(--negro))',
       },
       borderRadius: {
         xl: `calc(var(--radius) + 4px)`,

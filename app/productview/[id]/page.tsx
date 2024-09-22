@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/select";
 import React from "react";
 import { useParams } from 'next/navigation';
+import { AddToCart } from '@/components/ui/buttons';
 
 export default function Page() {
   const params = useParams();
@@ -138,7 +139,7 @@ export default function Page() {
                 </Select>
               </div>
               <div className="flex items-center gap-4">
-                <Button size="lg">Agregar a carrito</Button>
+                <Button variant="destructive" size="lg">Agregar a carrito</Button>
               </div>
             </form>
           </div>
