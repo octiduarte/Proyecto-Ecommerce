@@ -21,6 +21,7 @@ const config: Config = {
             "background": "hsl(var(--background))",
             "foreground": "hsl(var(--foreground))",
             "negro": "hs1(var(--black))",
+            "transparente": "var(--transparente)",
             "primary": {
               "DEFAULT": "hsl(var(--primary))",
               "foreground": "hsl(var(--primary-foreground))"

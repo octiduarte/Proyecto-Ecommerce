@@ -28,6 +28,11 @@
   }
 }
 
+.transparente {
+  background-color: rgba(0, 0, 0, 0.833);
+  backdrop-filter: saturate(180%) blur(5px);
+}
+
 
 @layer base {
   * {
