@@ -192,7 +192,7 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
                         {categories.map((category, index) => (
                           <Link
                             key={index}
-                            href="#"
+                            href={`/products?category=${category}`}
                             className="flex items-center gap-2 rounded-md px-3 py-2 text-background transition-colors hover:bg-accent hover:text-accent-foreground"
                             prefetch={false}
                           >
