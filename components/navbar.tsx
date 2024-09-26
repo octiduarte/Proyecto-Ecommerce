@@ -36,7 +36,7 @@ type NavbarResponsiveProps = {
 export default function Navbar({ store, categories }: NavbarResponsiveProps) {
   return (
     <>
-      <header className="sticky top-0 z-50 flex transparente h-16 w-full items-center justify-between  px-4 md:px-6 lg:px-8 border-b border-gray-500 ">
+      <header className="sticky top-0 z-50 flex bg-foreground h-16 w-full items-center justify-between  px-4 md:px-6 lg:px-8 border-b border-gray-500 ">
         <Link
           href="#"
           className="flex items-center gap-2 text-lg font-semibold"
@@ -65,27 +65,28 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
                   Productos
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[300px] p-2 bg-black">
+                  <div className="grid w-[300px] p-2 bg-background">
                     {categories.map((category, index) => (
                       <NavigationMenuLink asChild key={index}>
                         <Link
-                          href="#"
-                          className="group text-zinc-300 grid h-auto w-full items-center justify-start gap-1 rounded-md p-4 text-sm font-medium  transition-colors  hover:bg-accent-foreground  focus:bg-accent   disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                          href={`/products?category=${category}`}
+                          className="group text-foreground grid h-auto w-full items-center justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-secondary focus:bg-accent disabled:pointer-events-none disabled:opacity-50"
                           prefetch={false}
                         >
-                          <div className="text-sm  font-medium leading-none group-hover:underline">
+                          <div className="text-sm font-medium leading-none">
                             {category}
                           </div>
                         </Link>
                       </NavigationMenuLink>
                     ))}
+                    <DropdownMenuSeparator />
                     <NavigationMenuLink asChild>
                       <Link
                         href="/products"
-                        className="group text-background grid h-auto w-full items-center justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors  hover:bg-accent-foreground  focus:bg-accent   disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
+                        className="group  grid h-auto w-full items-center justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors text-secondary-foreground hover:bg-secondary   focus:bg-secondary   disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50"
                         prefetch={false}
                       >
-                        <div className="text-sm font-medium  leading-none group-hover:underline">
+                        <div className="text-sm  leading-none font-semibold ">
                           Ver todos los productos
                         </div>
                       </Link>
@@ -168,8 +169,6 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
                 entre los productos y otras secciones.
               </p>
               <div className="grid gap-6 p-6">
-
-
                 {/* Navegación móvil */}
                 <nav className="grid gap-4">
                   <Link

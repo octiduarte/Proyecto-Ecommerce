@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
 import { useState, useEffect, useMemo } from "react";
+import { useSearchParams } from 'next/navigation'; // Importa useSearchParams
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -13,21 +14,29 @@ import ProductCard from "@/components/productCard";
 import { fetchData } from "@/lib/api"; // Reutilizamos la función fetchData
 
 export default function ProductsPage() {
+  const searchParams = useSearchParams(); // Obtén los parámetros de búsqueda
+  const category = searchParams.get('category'); // Extrae el parámetro 'category'
+
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState([0, 1000]);
   const [showFilters, setShowFilters] = useState(false);
-  const [products, setProducts] = useState([]); // Productos dinámicos
-  const [categories, setCategories] = useState<string[]>([]); // Categorías dinámicas
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState<string[]>([]);
 
   useEffect(() => {
     async function loadProducts() {
-      const data = await fetchData(); // Llamamos a la función fetchData
-      setProducts(data.products); // Actualizamos los productos
-      setCategories(data.categories); // Actualizamos las categorías
+      const data = await fetchData();
+      setProducts(data.products);
+      setCategories(data.categories);
+
+      // Si hay un query parameter de categoría, seleccionarlo automáticamente
+      if (category && data.categories.includes(category)) {
+        setSelectedCategories([category as string]);
+      }
     }
     loadProducts();
-  }, []);
+  }, [category]);
 
   const filteredProducts = useMemo(() => {
     return products.filter((product: any) => {
