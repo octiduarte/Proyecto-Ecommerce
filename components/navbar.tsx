@@ -65,7 +65,7 @@ export default function Navbar({ store, categories }: NavbarResponsiveProps) {
                   Productos
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="grid w-[300px] p-2 bg-background">
+                  <div className="grid w-[300px] p-2 bg-background shadow-md border">
                     {categories.map((category, index) => (
                       <NavigationMenuLink asChild key={index}>
                         <Link
