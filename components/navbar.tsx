@@ -36,7 +36,7 @@ type NavbarResponsiveProps = {
 export default function Navbar({ store, categories }: NavbarResponsiveProps) {
   return (
     <>
-      <header className="sticky top-0 z-50 flex bg-foreground h-16 w-full items-center justify-between  px-4 md:px-6 lg:px-8 border-b border-gray-500 ">
+      <header className="sticky top-0 z-50 flex bg-foreground h-16 w-full items-center justify-between  px-4 md:px-6 lg:px-8  ">
         <Link
           href="#"
           className="flex items-center gap-2 text-lg font-semibold"

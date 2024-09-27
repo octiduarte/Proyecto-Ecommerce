@@ -1,5 +1,7 @@
-'use client';
+"use client";
 import React from "react";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
 type SectionHeaderProps = {
   banner: string; // Añadimos la propiedad banner
@@ -7,21 +9,38 @@ type SectionHeaderProps = {
 
 const SectionHeader = ({ banner }: SectionHeaderProps) => {
   return (
-    <div className="z-0 relative flex h-lvh sm:h-80 xl:h-96 w-full items-center justify-center overflow-hidden">
+    <section className="relative w-full h-screen md:h-screen overflow-hidden">
       <img
         src={banner}
-        className="absolute w-full h-full object-cover z-0" // Asegúrate de que el z-index del banner sea bajo
-        alt="Banner"
+        alt="Hero Product"
+        width={1920}
+        height={1080}
+        className="w-full h-full object-cover object-center"
+        style={{ aspectRatio: "1920/1080", objectFit: "cover" }}
       />
-      <div className="relative z-10 flex flex-col justify-center gap-7 w-full h-full py-5 bg-white/40 p-6 rounded-lg text-center">
-        <h1 className="md:text-8xl text-6xl font-bold text-black">
-          Bienvenidos a nuestro Ecommerce
+      <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-primary-foreground px-4 md:px-6">
+        <h1 className="text-foreground text-4xl md:text-6xl font-bold tracking-tight">
+          Elevate Your Style
         </h1>
-        <p className="text-black">
-          Hot Picks from the Summer Collection: Embrace the Season in Style!
+        <p className="mt-4  text-background md:text-xl">
+          Discover our curated collection of high-quality, sustainable fashion
+          that will transform your wardrobe.
         </p>
+        <div className="mt-8 flex justify-center gap-4">
+          <Link href="#" prefetch={false}>
+            <Button variant="destructive" size="sm" className="w-full">
+              Comprar
+            </Button>
+          </Link>
+          <Link href="#" prefetch={false}>
+            <Button variant="outline" size="sm" className="text-foreground">
+              Ver mas
+            </Button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 export default SectionHeader;
