@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <>
       <MainSection products={data.products} banner={data.store.banner} />
-
     </>
   );
 }
