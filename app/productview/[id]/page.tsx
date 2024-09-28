@@ -12,6 +12,13 @@ import {
 import React, { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { AddToCart } from "@/components/ui/buttons";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
 
 type Product = {
   product_id: number;
@@ -75,23 +82,52 @@ export default function Page() {
   const handleSizeChange = (size: string) => {
     setSelectedSize(size);
   };
+
+  // Función para calcular el precio con descuento (asumiendo que el descuento es un porcentaje)
+  const calculateDiscountedPrice = (price: number, discount: number): number => {
+    return price - (price * discount) / 100;
+  };
+
   return (
     <section className="py-12 md:py-16">
       <div className="grid gap-8 px-4 md:px-6">
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-12 items-start max-w-6xl mx-auto">
-          <div className="grid gap-4 md:gap-10 items-start">
-            <div className="grid gap-4">
-              <img
-                src={product.images[0] || "/placeholder.svg"}
-                alt="Product Image"
-                width={600}
-                height={600}
-                className="object-cover border w-full rounded-lg overflow-hidden"
-              />
-            </div>
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8  px-4 md:px-6">
+          <div className="flex items-center justify-center mx-6">
+            <Carousel className="w-full max-w-[500px] rounded-lg shadow-lg">
+              <CarouselContent>
+                {product.images.length >= 1 ? (
+                  product.images.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <img
+                        src={image} // Aquí usamos las URLs reales de las imágenes.
+                        alt={`Product Image ${index + 1}`} // Ajustamos el alt para cada imagen.
+                        width={600}
+                        height={600}
+                        className="w-full object-cover"
+                        style={{ aspectRatio: "600/600", objectFit: "cover" }}
+                      />
+                    </CarouselItem>
+                  ))
+                ) : (
+                  <CarouselItem>
+                    <img
+                      src="/placeholder.svg" // En caso de que no haya imágenes, mostramos un placeholder.
+                      alt="Placeholder Image"
+                      width={600}
+                      height={600}
+                      className="w-full object-cover"
+                      style={{ aspectRatio: "600/600", objectFit: "cover" }}
+                    />
+                  </CarouselItem>
+                )}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
+
           <div className="grid gap-4 md:gap-10 items-start">
-            <div className="hidden md:flex items-start">
+            <div className=" md:flex items-start">
               <div className="grid gap-4">
                 <h1 className="font-bold text-3xl lg:text-4xl">
                   {product.name}
@@ -99,7 +135,34 @@ export default function Page() {
                 <div>
                   <p>{product.main_description}</p>
                 </div>
-                <div className="text-4xl font-bold ">${product.price}</div>
+
+                {/* Mostrar el precio con descuento si hay uno */}
+                <div className="text-4xl font-bold">
+                  {product.discount_type !== "No Discount" &&
+                  product.discount_amount > 0 ? (
+                    <div className="flex items-center gap-2">
+                      {/* Precio anterior tachado */}
+                      <span className="text-gray-500 line-through">
+                        ${product.price.toFixed(2)}
+                      </span>
+                      {/* Precio con descuento */}
+                      <span className="text-red-600 font-bold">
+                        $
+                        {calculateDiscountedPrice(
+                          product.price,
+                          product.discount_amount
+                        ).toFixed(2)}
+                      </span>
+                    </div>
+                  ) : (
+                    // Si no hay descuento, mostrar el precio normal
+                    <span>${product.price.toFixed(2)}</span>
+                  )}
+                </div>
+
+                <div>
+                  <p>{product.long_description}</p>
+                </div>
               </div>
             </div>
             <form className="grid gap-4 md:gap-4">
@@ -130,7 +193,7 @@ export default function Page() {
                   ))}
                 </RadioGroup>
                 <p>Color seleccionado: {selectedColor}</p>{" "}
-                {/* Muestra el color seleccionado */}
+                
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="size" className="text-base">
@@ -169,18 +232,16 @@ export default function Page() {
                     <SelectValue placeholder="Select" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="1">1</SelectItem>
-                    <SelectItem value="2">2</SelectItem>
-                    <SelectItem value="3">3</SelectItem>
-                    <SelectItem value="4">4</SelectItem>
-                    <SelectItem value="5">5</SelectItem>
+                    {Array.from(
+                      { length: product.stock_count },
+                      (_, i) => i + 1
+                    ).map((quantity) => (
+                      <SelectItem key={quantity} value={String(quantity)}>
+                        {quantity}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
-              </div>
-              <div className="flex items-center gap-4">
-                <Button variant="destructive" size="lg">
-                  Agregar a carrito
-                </Button>
               </div>
             </form>
           </div>
