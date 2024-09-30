@@ -19,16 +19,16 @@ const SectionHeader = ({ banner }: SectionHeaderProps) => {
         style={{ aspectRatio: "1920/1080", objectFit: "cover" }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-primary-foreground px-4 md:px-6">
-        <h1 className="text-foreground text-4xl md:text-6xl font-bold tracking-tight">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-primary-foreground px-4 w-full max-w-screen-md">
+        <h1 className="text-foreground text-6xl md:text-7xl font-bold tracking-tight">
           Elevate Your Style
         </h1>
-        <p className="mt-4  text-background md:text-xl">
+        <p className="mt-4 text-background text-lg md:text-xl">
           Discover our curated collection of high-quality, sustainable fashion
           that will transform your wardrobe.
         </p>
         <div className="mt-8 flex justify-center gap-4">
-          <Link href="#" prefetch={false}>
+          <Link href="/products" prefetch={false}>
             <Button variant="destructive" size="sm" className="w-full">
               Comprar
             </Button>
@@ -43,4 +43,5 @@ const SectionHeader = ({ banner }: SectionHeaderProps) => {
     </section>
   );
 };
+
 export default SectionHeader;

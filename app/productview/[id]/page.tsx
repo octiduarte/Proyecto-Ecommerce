@@ -37,7 +37,7 @@ type Product = {
 
 export default function Page() {
   const params = useParams();
-  const { id } = params;
+  const id = Number(params.id);
 
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedColor, setSelectedColor] = useState<string>("");
@@ -244,6 +244,10 @@ export default function Page() {
                 </Select>
               </div>
             </form>
+            <div className="flex">
+              <AddToCart id={id}></AddToCart>
+              <Button variant="outline" size="sm" className="ml-2">Comprar</Button>
+            </div>
           </div>
         </div>
       </div>
