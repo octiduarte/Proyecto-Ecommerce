@@ -46,7 +46,7 @@
     useEffect(() => {
       async function loadProduct() {
         try {
-          const res = await fetch(`http://localhost:8000/products/${id}`, {
+          const res = await fetch(`https://ecommercebd-production-6168.up.railway.app/products/${id}`, {
             cache: "no-store",
           });
           if (!res.ok) {
